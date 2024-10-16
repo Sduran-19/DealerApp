@@ -66,6 +66,7 @@ fun DealerNavHost(
                                 Route.Home -> navHostController.navigate(Screen.HomeScreen)
                                 Route.Vehiculos -> navHostController.navigate(Screen.VehiculoListScreen)
                                 Route.Accesorios -> navHostController.navigate(Screen.AccesoriosListScreen)
+
                             }
                             selectedItemIndex = index
                             scope.launch {
@@ -93,23 +94,20 @@ fun DealerNavHost(
             navController = navHostController,
             startDestination = Screen.HomeScreen
         ) {
-
-
             composable<Screen.VehiculoListScreen> {
                 VehiculoListScreen(
                     drawerState = drawerState,
                     scope = scope,
                     onClickVehiculo = { vehiculoId ->
                         navHostController.navigate(Screen.VehiculoScreen(vehiculoId))
-
                     },
                     onAddVehiculo = {
-                        navHostController.navigate(Screen.VehiculoScreen( 0))
+                        navHostController.navigate(Screen.VehiculoScreen(0))
                     }
                 )
             }
             composable<Screen.VehiculoScreen> { argumentos ->
-            val vehiculoId = argumentos.toRoute< Screen.VehiculoScreen>().vehiculoId
+                val vehiculoId = argumentos.toRoute<Screen.VehiculoScreen>().vehiculoId
                 VehiculoScreen(
                     vehiculoId = vehiculoId,
                     goVehiculoList = {
@@ -117,7 +115,8 @@ fun DealerNavHost(
                     }
                 )
             }
-           /* composable(Screen.AccesoriosListScreen.route) {
+            /*
+            composable<Screen.AccesoriosListScreen> {
                 AccesoriosListScreen(
                     drawerState = drawerState,
                     scope = scope,
@@ -129,7 +128,7 @@ fun DealerNavHost(
                     }
                 )
             }
-            composable(Screen.AccesoriosScreen.routeWithArgs) { navBackStackEntry ->
+            composable<Screen.AccesoriosScreen> { navBackStackEntry ->
                 val accesorioId = navBackStackEntry.arguments?.getInt("accesorioId") ?: 0
                 AccesoriosScreen(
                     accesorioId = accesorioId,
@@ -137,7 +136,8 @@ fun DealerNavHost(
                         navHostController.navigate(Screen.AccesoriosListScreen.route)
                     }
                 )
-            }*/
+            }
+            */
         }
     }
 }

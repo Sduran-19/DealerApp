@@ -84,7 +84,7 @@ fun HomeScreen(
                     route = Route.Vehiculos,
                     navController = navHostController
                 )
-                Spacer(modifier = Modifier.height(32.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
                 CardHome(
                     painter = painterResource(R.drawable.ic_launcher_background),
@@ -112,12 +112,13 @@ fun CardHome(
             .fillMaxWidth()
             .clickable {
                 when (route) {
-                    Route.Vehiculos -> navController.navigate(Screen.VehiculoListScreen.route)
-                    Route.Accesorios -> navController.navigate(Screen.AccesoriosListScreen.route)
-                    Route.Home -> navController.navigate(Screen.HomeScreen.route)
+                    Route.Vehiculos -> navController.navigate(Screen.VehiculoListScreen)
+                    Route.Accesorios -> navController.navigate(Screen.AccesoriosListScreen)
+                    Route.Home -> navController.navigate(Screen.HomeScreen)
                 }
             },
-        shape = RoundedCornerShape(15.dp)
+        shape = RoundedCornerShape(15.dp),
+        elevation = CardDefaults.cardElevation(8.dp)
     ) {
         Box(
             modifier = Modifier
@@ -149,7 +150,7 @@ fun CardHome(
                     text = title,
                     style = TextStyle(
                         color = Color.White,
-                        fontSize = 16.sp,
+                        fontSize = 20.sp,
                         fontWeight = FontWeight.Bold
                     )
                 )

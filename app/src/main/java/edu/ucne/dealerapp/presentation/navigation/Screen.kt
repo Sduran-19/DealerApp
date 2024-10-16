@@ -2,21 +2,20 @@ package edu.ucne.dealerapp.presentation.navigation
 
 import kotlinx.serialization.Serializable
 
-@Serializable
-sealed class Screen(val route: String) {
+sealed class Screen {
+    @Serializable
+    data object VehiculoListScreen : Screen()
 
     @Serializable
-    object HomeScreen : Screen("home")
+    data class VehiculoScreen(val vehiculoId: Int) : Screen()
 
     @Serializable
-    object VehiculoListScreen : Screen("vehiculo_list")
+    data object AccesoriosListScreen : Screen()
 
     @Serializable
-    data class VehiculoScreen(val vehiculoId: Int) : Screen("vehiculo_screen/$vehiculoId")
+    data class AccesoriosScreen(val accesorioId: Int) : Screen()
 
     @Serializable
-    object AccesoriosListScreen : Screen("accesorios_list")
+    data object HomeScreen : Screen()
 
-    @Serializable
-    data class AccesoriosScreen(val accesorioId: Int) : Screen("accesorios_screen/$accesorioId")
 }

@@ -28,13 +28,9 @@ class MainActivity : ComponentActivity(){
         super.onCreate(savedInstanceState)
         setContent {
             DealerAppsTheme {
-              val navHostController = rememberNavController()
+             val navHost = rememberNavController()
                 val items = BuildNavigationItems()
-
-                DealerNavHost(
-                    navHostController = navHostController,
-                    items = items
-                )
+                DealerNavHost(navHostController = navHost, items = items)
             }
         }
     }
