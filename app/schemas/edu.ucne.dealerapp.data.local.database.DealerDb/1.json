@@ -1,0 +1,78 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "3fcd93ce3ebfb5c338937ea71c7dc780",
+    "entities": [
+      {
+        "tableName": "Vehiculoes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`vehiculoId` INTEGER, `marca` TEXT NOT NULL, `modelo` TEXT NOT NULL, `placa` TEXT NOT NULL, PRIMARY KEY(`vehiculoId`))",
+        "fields": [
+          {
+            "fieldPath": "vehiculoId",
+            "columnName": "vehiculoId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "marca",
+            "columnName": "marca",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modelo",
+            "columnName": "modelo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "placa",
+            "columnName": "placa",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "vehiculoId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Accesorios",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`accesorioId` INTEGER, `descripcion` TEXT NOT NULL, PRIMARY KEY(`accesorioId`))",
+        "fields": [
+          {
+            "fieldPath": "accesorioId",
+            "columnName": "accesorioId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "descripcion",
+            "columnName": "descripcion",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "accesorioId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3fcd93ce3ebfb5c338937ea71c7dc780')"
+    ]
+  }
+}
