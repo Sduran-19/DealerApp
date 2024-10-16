@@ -33,6 +33,7 @@ import edu.ucne.dealerapp.presentation.navigation.Screen
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     drawerState: DrawerState,
